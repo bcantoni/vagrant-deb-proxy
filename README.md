@@ -34,6 +34,8 @@ See this article for more details and background: [Ubuntu deb proxy and cache: s
         apt-get install squid-deb-proxy-client -y
         echo 'Acquire::http::Proxy "http://10.211.54.100:8000/";' | sudo tee /etc/apt/apt.conf.d/30autoproxy
 
+1. Now start your other VMs as normal. They should start using this VM as a proxy/cache during any `apt-get` commands.
+
 ## Notes:
 
 * On the proxy VM, you can tail the log `/var/log/squid-deb-proxy/access.log` to make sure everything is working with cache hits/misses. The cached package files will be stored under `/var/cache/squid-deb-proxy`.
